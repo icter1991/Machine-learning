@@ -1,4 +1,3 @@
-import pandas
 import quandl
 import math
 import datetime
