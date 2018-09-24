@@ -22,16 +22,16 @@ data_frame = data_frame[['Adj. Close', 'HL_PCT', 'PCT_change', 'Adj. Volume']]
 forecast_col = 'Adj. Close'
 data_frame.fillna(-9999, inplace=True)
 
-forecast_out = int(math.ceil(0.01*len(data_frame)))
+forecast_out = int(math.ceil(0.1*len(data_frame)))
 print(forecast_out)
 
 data_frame['label'] = data_frame[forecast_col].shift(-forecast_out)
 
 X = numpy.array(data_frame.drop(['label'], 1))
-X = preprocessing.scale(X)
+X = preprocessing.scale(X)  
 
-X = X[:-forecast_out]
 X_lately = X[-forecast_out:]
+X = X[:-forecast_out]
 
 data_frame.dropna(inplace=True)
 y = numpy.array(data_frame['label'])
