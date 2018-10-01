@@ -5,7 +5,6 @@ from matplotlib import style
 import random
 
 
-
 def line_slope_and_intercept(xs, ys):
     """Returns slope of best fit line as m and  also intercept of ys ad xs as b.
 
